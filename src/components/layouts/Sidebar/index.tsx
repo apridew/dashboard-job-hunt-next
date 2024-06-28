@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { GoHome } from "react-icons/go";
 import { AiOutlineMessage } from "react-icons/ai";
-import { PiBuildingsThin } from "react-icons/pi";
+import { PiBuildings } from "react-icons/pi";
 import { FaWpforms } from "react-icons/fa";
 import { GrGroup, GrSchedule } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -13,7 +13,7 @@ interface SidebarProps {}
 const dashboardItems = [
   { icon: <GoHome />, label: "Home" },
   { icon: <AiOutlineMessage />, label: "Messages" },
-  { icon: <PiBuildingsThin />, label: "Company Profile" },
+  { icon: <PiBuildings />, label: "Company Profile" },
   { icon: <GrGroup />, label: "All Applicants" },
   { icon: <FaWpforms />, label: "Job Listings" },
   { icon: <GrSchedule />, label: "My Schedule" },
@@ -55,7 +55,7 @@ const Sidebar: FC<SidebarProps> = () => {
               </Button>
               <Button
                 variant={"ghost"}
-                className="w-full justify-start text-red-500 rounded-none hover:text-red-500 text-md hover:bg-red-100"
+                className="w-full justify-start text-red-500 rounded-none hover:text-red-500 hover:bg-red-100"
               >
                 <div className="flex items-center gap-2">
                   <CiLogout className="text-lg" />
