@@ -1,3 +1,5 @@
+"use client"
+
 import type { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { GoHome } from "react-icons/go";
@@ -7,19 +9,21 @@ import { FaWpforms } from "react-icons/fa";
 import { GrGroup, GrSchedule } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 interface SidebarProps {}
 
 const dashboardItems = [
-  { icon: <GoHome />, label: "Home" },
-  { icon: <AiOutlineMessage />, label: "Messages" },
-  { icon: <PiBuildings />, label: "Company Profile" },
-  { icon: <GrGroup />, label: "All Applicants" },
-  { icon: <FaWpforms />, label: "Job Listings" },
-  { icon: <GrSchedule />, label: "My Schedule" },
+  { icon: <GoHome />, label: "Home", href: "/" },
+  { icon: <AiOutlineMessage />, label: "Messages", href: "/messages" },
+  { icon: <PiBuildings />, label: "Company Profile", href: "/profile" },
+  { icon: <GrGroup />, label: "All Applicants", href: "/applicants" },
+  { icon: <FaWpforms />, label: "Job Listings", href: "/job-listings" },
+  { icon: <GrSchedule />, label: "My Schedule", href: "/my-schedule" },
 ];
 
 const Sidebar: FC<SidebarProps> = () => {
+  const router = useRouter()
   return (
     <div className="pb-12 min-h-screen relative">
       <div className="space-y-4 py-4 fixed w-[18%]">
@@ -31,6 +35,7 @@ const Sidebar: FC<SidebarProps> = () => {
                 key={idx}
                 variant={"ghost"}
                 className="w-full justify-start rounded-none hover:text-primary"
+                onClick={() => router.push(item.href)}
               >
                 <div className="flex items-center gap-2">
                   <div className="text-lg">{item.icon}</div>

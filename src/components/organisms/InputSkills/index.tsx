@@ -8,14 +8,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { jobFormSchema } from "@/lib/form-schema";
 import { PlusIcon } from "lucide-react";
 import { FC, useEffect, useState } from "react";
-import { UseFormReturn } from "react-hook-form";
-import { z } from "zod";
 
 interface InputSkillsProps {
-  form: UseFormReturn<z.infer<typeof jobFormSchema>>;
+  form: any;
 }
 
 const InputSkills: FC<InputSkillsProps> = ({ form }) => {
