@@ -10,12 +10,11 @@ import {
 } from "@/components/ui/table";
 import { JOB_LISTING_COLUMNS, JOB_LISTING_DATA } from "@/constants";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { MoreVerticalIcon } from "lucide-react";
+import ButtonAction from "@/components/organisms/ButtonAction";
 
-interface JobListingsProps {}
+interface JobListingsPageProps {}
 
-const JobListings: FC<JobListingsProps> = () => {
+const JobListingsPage: FC<JobListingsPageProps> = () => {
   return (
     <div>
       <div className="font-semibold text-3xl">Job Listings</div>
@@ -46,9 +45,7 @@ const JobListings: FC<JobListingsProps> = () => {
                 {data.applicants}/{data.needs}
               </TableCell>
               <TableCell>
-                <Button size={"icon"} variant={"outline"}>
-                  <MoreVerticalIcon className="w-4 h-4" />
-                </Button>
+                <ButtonAction url={"job-detail/1"} />
               </TableCell>
             </TableRow>
           ))}
@@ -58,4 +55,4 @@ const JobListings: FC<JobListingsProps> = () => {
   );
 };
 
-export default JobListings;
+export default JobListingsPage;

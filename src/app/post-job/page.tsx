@@ -32,9 +32,9 @@ import Editor from "@/components/organisms/Editor";
 import InputBenefits from "@/components/organisms/InputBenefits";
 import { Button } from "@/components/ui/button";
 
-interface PostJobProps {}
+interface PostJobPageProps {}
 
-const PostJob: FC<PostJobProps> = () => {
+const PostJobPage: FC<PostJobPageProps> = () => {
   const [editorLoaded, SetEditorLoaded] = useState<boolean>(false);
   const form = useForm<z.infer<typeof jobFormSchema>>({
     resolver: zodResolver(jobFormSchema),
@@ -260,4 +260,4 @@ const PostJob: FC<PostJobProps> = () => {
   );
 };
 
-export default PostJob;
+export default PostJobPage;
