@@ -13,9 +13,11 @@ import { FC, useEffect, useState } from "react";
 
 interface InputSkillsProps {
   form: any;
+  name: string;
+  label: string;
 }
 
-const InputSkills: FC<InputSkillsProps> = ({ form }) => {
+const InputSkills: FC<InputSkillsProps> = ({ form, name, label }) => {
   const [isHide, setHide] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const [values, setValues] = useState<string[]>([]);
@@ -31,7 +33,7 @@ const InputSkills: FC<InputSkillsProps> = ({ form }) => {
 
     setValues(newValue);
 
-    form.setValue("requiredSkills", newValue);
+    form.setValue(name, newValue);
     setInputValue("");
   };
 
@@ -39,24 +41,24 @@ const InputSkills: FC<InputSkillsProps> = ({ form }) => {
     const skills: any = values.filter((value: string) => item !== value);
 
     setValues(skills);
-    form.setValue("requiredSkills", skills);
+    form.setValue(name, skills);
   };
 
   useEffect(() => {
-    const val = form.getValues("requiredSkills");
+    const val = form.getValues(name);
 
     if (val && val.length > 0) {
       setValues(val);
     }
-  }, [form, "requiredSkills"]);
+  }, [form, name]);
 
   return (
     <FormField
       control={form.control}
-      name={"requiredSkills"}
+      name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="block">Add Skills</FormLabel>
+          <FormLabel className="block">{label}</FormLabel>
           <FormControl>
             <>
               <Button
@@ -66,7 +68,7 @@ const InputSkills: FC<InputSkillsProps> = ({ form }) => {
                 onClick={() => setHide(!isHide)}
               >
                 <PlusIcon className="w-4 h-4 mr-2" />
-                Add Skills
+                {label}
               </Button>
               {isHide && (
                 <div className="my-4 flex flex-row gap-4">

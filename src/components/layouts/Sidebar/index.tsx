@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import type { FC } from "react";
 import { Button } from "@/components/ui/button";
@@ -23,7 +23,7 @@ const dashboardItems = [
 ];
 
 const Sidebar: FC<SidebarProps> = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="pb-12 min-h-screen relative">
       <div className="space-y-4 py-4 fixed w-[18%]">
@@ -52,6 +52,7 @@ const Sidebar: FC<SidebarProps> = () => {
               <Button
                 variant={"ghost"}
                 className="w-full justify-start rounded-none hover:text-primary"
+                onClick={() => router.push("/settings")}
               >
                 <div className="flex items-center gap-2">
                   <IoSettingsOutline className="text-lg" />
